@@ -130,9 +130,19 @@ clock = pygame.time.Clock()
 
 screen = pygame.display.set_mode((WIDTH, HEIGHT))
 screen.fill(BACKROUND)
+Start_text = GAME_OVER_FONT.render("PRESS SPACE", 1, RED)
+screen.blit(Start_text, (WIDTH/2 - 175, HEIGHT/2 - 200))
+pygame.display.flip()
 
 Player_list.append(Player(RED, pygame.K_a, pygame.K_d))
 
+#Start screen
+while(True):
+    pygame.event.pump()
+    keys = pygame.key.get_pressed()
+    if keys[pygame.K_SPACE]:
+        break
+    
 Time = 0
 #Main game loop
 while(Lives > 0):
@@ -209,9 +219,3 @@ while(True):
         if event.type == pygame.QUIT:
             pygame.quit()
             exit()
-    
-    
-
-    
-    
-    
